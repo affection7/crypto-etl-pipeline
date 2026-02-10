@@ -1,2 +1,2 @@
-# crypto-etl-pipeline
+# Crypto-ETL-pipeline
 ETL pipeline: CoinGecko API → PostgreSQL
