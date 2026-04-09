@@ -18,7 +18,8 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
 2. Установите зависимости:
    ```bash
    pip install requests pandas psycopg2-binary python-dotenv
-3.Запустите:
+   
+3. Запустите:
    ```bash
    python src/etl.py
 
