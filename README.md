@@ -23,5 +23,5 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
    ```bash
    python src/etl.py
 
-Схема таблицы
-bitcoin_prices (id SERIAL, date TIMESTAMP, price FLOAT)
+##Схема таблицы:
+   bitcoin_prices (id SERIAL, date TIMESTAMP, price FLOAT)
