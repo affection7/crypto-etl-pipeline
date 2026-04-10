@@ -30,17 +30,20 @@ def load_to(df: pd.DataFrame):
     conn = psycopg2.connect(DB_URL)
     cur = conn.cursor()
 
-    value_data = df['date'].iloc[0]
+    value_date = df['date'].iloc[0]
     value_price = float(df['price'].iloc[0])
 
     cur.execute("CREATE TABLE IF NOT EXISTS bitcoin_prices (id SERIAL PRIMARY KEY, date TIMESTAMP, price FLOAT);")
-    cur.execute("INSERT INTO bitcoin_prices (date, price) VALUES (%s,%s)", (value_data, value_price))
+    cur.execute("INSERT INTO bitcoin_prices (date, price) VALUES (%s,%s)", (value_date, value_price))
 
     conn.commit()
     cur.close()
     conn.close()
+    print(f"----- SAVED \n PRICE: {value_price} ----- TIME: {value_date}")
 
-data = extract_price(URL)
-data_df = transform_price(data)
-load_to(data_df)
-
+try:
+    data = extract_price(URL)
+    data_df = transform_price(data)
+    load_to(data_df)
+except:
+    print("ERROR")

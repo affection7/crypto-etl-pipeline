@@ -1,0 +1,28 @@
+name: Bitcoin Price Update
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pandas psycopg2-binary python-dotenv
+
+      - name: Run script
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          DB_PASS: ${{ secrets.DB_PASS }}
+        run: python src/etl.py
