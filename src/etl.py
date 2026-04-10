@@ -39,7 +39,7 @@ def load_to(df: pd.DataFrame):
     conn.commit()
     cur.close()
     conn.close()
-    print(f"----- SAVED \n PRICE: {value_price} ----- TIME: {value_date}")
+    print(f"----- SAVED\n PRICE: {value_price}\n ----- TIME: {value_date}")
 
 try:
     data = extract_price(URL)
