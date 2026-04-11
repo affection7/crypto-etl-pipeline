@@ -30,3 +30,9 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
 
 ## Схема таблицы:
    bitcoin_prices (id SERIAL, date TIMESTAMP, price FLOAT, coin VARCHAR)
+
+## Визуализация данных
+Дашборд в Power BI отображает динамику курсов криптовалют в реальном времени.
+
+![Dashboard Preview](img/dashboard_preview.png)
+
