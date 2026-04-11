@@ -23,16 +23,14 @@ def transform_price(data: dict):
     rows = []
     date = datetime.now()
     
-    for x, y in data.items():
-        rows.append({"date": date, "coin": x, "price": y['usd']})
+    for coin, price in data.items():
+        rows.append({"date": date, "coin": coin, "price": price['usd']})
     return pd.DataFrame(rows)
 
 def load_to(df: pd.DataFrame):
-    df.to_csv('out.csv', mode='a', index=False, header=False)
 
     conn = psycopg2.connect(DB_URL)
     cur = conn.cursor()
-    # cur.execute("CREATE TABLE IF NOT EXISTS bitcoin_prices (id SERIAL PRIMARY KEY, date TIMESTAMP, price FLOAT, coin VARCHAR);")
 
     for x in range(len(df)):
         value_price = float(df['price'].iloc[x])
