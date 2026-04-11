@@ -24,4 +24,4 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
    python src/etl.py
 
 ## Схема таблицы:
-   bitcoin_prices (id SERIAL, date TIMESTAMP, price FLOAT)
+   bitcoin_prices (id SERIAL, date TIMESTAMP, price FLOAT, coin VARCHAR)
