@@ -1,1 +1,1 @@
-INSERT INTO bitcoin_prices (date, price, coin) VALUES (%s, %s, %s);
+INSERT INTO coins_price (date, price, coin) VALUES (%s, %s, %s);
