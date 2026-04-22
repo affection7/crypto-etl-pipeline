@@ -10,7 +10,7 @@ DB_URL = f"postgresql://neondb_owner:{DB_PASS}@ep-shiny-firefly-ah7am9sh-pooler.
 
 def load_to(df: pd.DataFrame):
 
-    with open(file='../sql/insert_coins.sql') as f_sql:
+    with open(file='sql/insert_coins.sql') as f_sql:
         sql = f_sql.read()
 
     conn = psycopg2.connect(DB_URL)
