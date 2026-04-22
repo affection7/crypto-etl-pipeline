@@ -29,7 +29,7 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
    python src/etl.py
 
 ## Схема таблицы:
-   bitcoin_prices (id SERIAL, date TIMESTAMP, price FLOAT, coin VARCHAR)
+   coins_price (id SERIAL PRIMARY KEY, date TIMESTAMP, price FLOAT, coin VARCHAR(10))
 
 ## Визуализация данных
 Дашборд в Power BI отображает динамику курсов криптовалют.
