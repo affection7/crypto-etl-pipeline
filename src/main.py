@@ -1,6 +1,6 @@
-from src.extract import extract_price
-from src.transform import transform_price
-from src.load import load_to
+from extract import extract_price
+from transform import transform_price
+from load import load_to
 
 
 URL = "https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=bitcoin,ethereum,solana&names=Bitcoin&symbols=btc"

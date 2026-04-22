@@ -1,0 +1,1 @@
+INSERT INTO bitcoin_prices (date, price, coin) VALUES (%s, %s, %s);
