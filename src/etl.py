@@ -14,38 +14,38 @@ HEADERS = {"x-cg-api-key": API_KEY}
 
 DB_URL = f"postgresql://neondb_owner:{DB_PASS}@ep-shiny-firefly-ah7am9sh-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&connect_timeout=10"
 
-def extract_price(url: str):
-    response = requests.get(url, headers=HEADERS)
-    data = response.json()
-    return data
+# def extract_price(url: str):
+#     response = requests.get(url, headers=HEADERS)
+#     data = response.json()
+#     return data
 
-def transform_price(data: dict):
-    rows = []
-    date = datetime.now()
+# def transform_price(data: dict):
+#     rows = []
+#     date = datetime.now()
     
-    for coin, price in data.items():
-        rows.append({"date": date, "coin": coin, "price": price['usd']})
-    return pd.DataFrame(rows)
+#     for coin, price in data.items():
+#         rows.append({"date": date, "coin": coin, "price": price['usd']})
+#     return pd.DataFrame(rows)
 
-def load_to(df: pd.DataFrame):
+# def load_to(df: pd.DataFrame):
 
-    conn = psycopg2.connect(DB_URL)
-    cur = conn.cursor()
+#     conn = psycopg2.connect(DB_URL)
+#     cur = conn.cursor()
 
-    for x in range(len(df)):
-        value_price = float(df['price'].iloc[x])
-        value_coin = df["coin"].iloc[x]
-        value_date = df['date'].iloc[x]
-        cur.execute("INSERT INTO bitcoin_prices (date, price, coin) VALUES (%s,%s,%s)", (value_date, value_price, value_coin))
-        print(f"----- SAVED -----\n PRICE: {value_price}\n TIME: {value_date}\n COIN: {value_coin}")
+#     for x in range(len(df)):
+#         value_price = float(df['price'].iloc[x])
+#         value_coin = df["coin"].iloc[x]
+#         value_date = df['date'].iloc[x]
+#         cur.execute("INSERT INTO bitcoin_prices (date, price, coin) VALUES (%s,%s,%s)", (value_date, value_price, value_coin))
+#         print(f"----- SAVED -----\n PRICE: {value_price}\n TIME: {value_date}\n COIN: {value_coin}")
 
-    conn.commit()
-    cur.close()
-    conn.close()
+#     conn.commit()
+#     cur.close()
+#     conn.close()
 
-try:
-    data = extract_price(URL)
-    data_df = transform_price(data)
-    load_to(data_df)
-except:
-    print("ERROR")
+# try:
+#     data = extract_price(URL)
+#     data_df = transform_price(data)
+#     load_to(data_df)
+# except:
+#     print("ERROR")
