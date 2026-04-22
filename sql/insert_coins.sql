@@ -1,1 +1,1 @@
-INSERT INTO coins_price (date, price, coin) VALUES (%s, %s, %s);
+INSERT INTO coins_price (date, price, coin) VALUES (%s, %s, %s) ON CONFLICT (coin, date) DO NOTHING;
