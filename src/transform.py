@@ -6,5 +6,5 @@ def transform_price(data: dict):
     date = datetime.now()
     
     for coin, price in data.items():
-        rows.append({"date": date, "coin": coin, "price": price['usd']})
+        rows.append({"date": date, "price": price['usd'], "coin": coin})
     return pd.DataFrame(rows)
