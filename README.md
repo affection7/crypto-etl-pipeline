@@ -22,7 +22,7 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
    DB_PASS=your_neon_password
 2. Установите зависимости:
    ```bash
-   pip install requests pandas psycopg2-binary python-dotenv
+   pip install -r requirements.txt
    
 3. Запустите:
    ```bash
