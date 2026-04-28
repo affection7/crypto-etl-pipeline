@@ -13,15 +13,13 @@ def load_to(df: pd.DataFrame):
     with open(file='sql/insert_coins.sql') as f_sql:
         sql = f_sql.read()
 
-    conn = psycopg2.connect(DB_URL)
-    cur = conn.cursor()
-
     if df.empty:
         print("No rows!!!")
         return
-    rows = df[["date", "price", "coin"]].values.tolist()
-    execute_values(cur,sql, rows)
 
-    conn.commit()
-    cur.close()
-    conn.close()
+    rows = df[["date", "price", "coin"]].values.tolist()
+    
+    with psycopg2.connect(DB_URL) as conn:
+        with conn.cursor() as cur:
+            execute_values(cur, sql, rows)
+            print(f'ROWS PREPARED: {len(rows)}')

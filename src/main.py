@@ -8,3 +8,4 @@ if __name__ == "__main__":
     data = extract_price(URL)
     data_df = transform_price(data)
     load_to(data_df)
+    print("BATCH INSERT DONE")
