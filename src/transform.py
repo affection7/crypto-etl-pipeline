@@ -5,8 +5,8 @@ def transform_price(data: dict):
     rows = []
     date = datetime.now(timezone.utc)
     
-    print("START TRANSFORM")
+    print("[TRANSFORM] start")
     for coin, price in data.items():
         rows.append({"date": date, "price": price['usd'], "coin": coin})
-    print(f'START EXTRACT {len(data.items())}')
+    print(f'[TRANSFORM] processed {len(data.items())} coins')
     return pd.DataFrame(rows)

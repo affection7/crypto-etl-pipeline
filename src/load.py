@@ -14,12 +14,12 @@ def load_to(df: pd.DataFrame):
         sql = f_sql.read()
 
     if df.empty:
-        print("No rows!!!")
+        print("[LOAD] No rows to load!!!")
         return
 
     rows = df[["date", "price", "coin"]].values.tolist()
-    
+
     with psycopg2.connect(DB_URL) as conn:
         with conn.cursor() as cur:
             execute_values(cur, sql, rows)
-            print(f'ROWS PREPARED: {len(rows)}')
+            print(f'[LOAD] rows prepared: {len(rows)}')

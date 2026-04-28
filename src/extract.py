@@ -10,5 +10,5 @@ HEADERS = {"x-cg-api-key": API_KEY}
 def extract_price(url: str):
     response = requests.get(url, headers=HEADERS)
     data = response.json()
-    print("START EXTRACT")
+    print("[EXTRACT] done")
     return data
