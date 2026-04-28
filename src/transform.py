@@ -1,9 +1,9 @@
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timezone
 
 def transform_price(data: dict):
     rows = []
-    date = datetime.now()
+    date = datetime.now(timezone.utc)
     
     print("START TRANSFORM")
     for coin, price in data.items():
