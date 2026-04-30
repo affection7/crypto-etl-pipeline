@@ -1,14 +1,17 @@
 import requests
-import os
+
 from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.getenv("API_KEY")
-HEADERS = {"x-cg-api-key": API_KEY}
-
-def extract_price(url: str):
-    response = requests.get(url, headers=HEADERS)
-    data = response.json()
-    print("[EXTRACT] done")
+def extract_price(url_bes: str, url_ton: str):
+    response_bes = requests.get(url_bes)
+    data_bes = response_bes.json()
+    
+    response_ton = requests.get(url_ton)
+    data_ton = response_ton.json()
+    
+    data = [data_bes, data_ton] 
+    
+    print(f"[EXTRACT] done. Collected {len(data)} items")
     return data
