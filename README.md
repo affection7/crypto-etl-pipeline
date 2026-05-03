@@ -29,7 +29,7 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
    
 3. Запустите:
    ```bash
-   python src/etl.py
+   python src/main.py
 
 ## Схема таблицы:
    coins_price (id SERIAL PRIMARY KEY, date TIMESTAMP, price FLOAT, coin VARCHAR(10))
