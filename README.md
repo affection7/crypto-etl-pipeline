@@ -3,7 +3,7 @@
 Минималистичный ETL-пайплайн для мониторинга цен токенов.
 
 ## ETL:
-1. **Extract**: Получает данные из **CoinGecko API** (`requests`).
+1. **Extract**: Получает данные из **CoinGecko API и Coinpaprika API** (`requests`).
 2. **Transform**: Формирует структуру данных с меткой времени (`pandas`).
 3. **Load**: Сохраняет результат в облачный **PostgreSQL (Neon)**.
 
