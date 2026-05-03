@@ -17,16 +17,19 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
 
 ## Быстрый старт:
 1. Настройте ключи в `.env`:
-   ```env
-   API_KEY=your_coingecko_key
-   DB_PASS=your_neon_password
+  ```env
+   API_KEY=YOUR_COINGECKO_API_KEY_HERE
+   DB_PASS=your_secure_password
+   URL_GECKO=https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=bitcoin,ethereum,solana
+   URL_PAPRIKA=https://api.coinpaprika.com/v1/tickers/ton-toncoin
+```
 2. Установите зависимости:
    ```bash
    pip install -r requirements.txt
    
 3. Запустите:
    ```bash
-   python src/etl.py
+   py src/main.py
 
 ## Схема таблицы:
    coins_price (id SERIAL PRIMARY KEY, date TIMESTAMP, price FLOAT, coin VARCHAR(10))
