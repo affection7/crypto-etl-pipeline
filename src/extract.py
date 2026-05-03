@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def extract_price(url_bes: str, url_ton: str):
-    response_bes = requests.get(url_bes)
+def extract_price(url_bes: str, headers_bes: str, url_ton: str):
+    response_bes = requests.get(url_bes, headers=headers_bes)
     data_bes = response_bes.json()
     
     response_ton = requests.get(url_ton)
