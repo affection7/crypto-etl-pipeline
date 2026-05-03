@@ -5,7 +5,6 @@ def transform_price(data_list: list):
     rows = []
     date = datetime.now(timezone.utc)
     
-    # Итерируемся по списку словарей
     for item in data_list:
         if "quotes" in item:
             rows.append({
