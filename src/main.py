@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 API_KEY = os.getenv("API_KEY")
-URL_GECKO  = "https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=bitcoin,ethereum,solana&names=Bitcoin&symbols=btc"
-URL_PAPRIKA = "https://api.coinpaprika.com/v1/tickers/ton-toncoin"
+URL_GECKO  = os.getenv("URL_GECKO")
+URL_PAPRIKA = os.getenv("URL_PAPRIKA")
 HEADERS = {"x-cg-api-key": API_KEY}
 
 if __name__ == "__main__":
@@ -19,3 +19,4 @@ if __name__ == "__main__":
     print("[LOAD] start")
     load_to(data_df)
     print("[PIPELINE] done")
+ 
