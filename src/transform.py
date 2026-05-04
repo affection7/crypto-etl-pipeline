@@ -9,7 +9,7 @@ def transform_price(data_list: list):
         if "quotes" in item:
             rows.append({
                 "date": date, 
-                "price": item["quotes"]["USD"]["price"], 
+                "price": round(item["quotes"]["USD"]["price"], 2), 
                 "coin": item["symbol"]
             })
         else:
