@@ -12,6 +12,7 @@ def extract_price(url_gecko: str, headers_gecko: dict, url_paprika: str):
         response_bes.raise_for_status()
         data_bes = response_bes.json()
         data.append(data_bes)
+        print("[EXTRACT] gecko success")
     except HTTPError as http_gecko_error:
         print(f"HTTP ощибка: {http_gecko_error}")
         
@@ -20,6 +21,7 @@ def extract_price(url_gecko: str, headers_gecko: dict, url_paprika: str):
         response_ton.raise_for_status()
         data_ton = response_ton.json()
         data.append(data_ton)
+        print("[EXTRACT] paprika success")
     except HTTPError as http_paprika_error:
         print(f"HTTP ощибка: {http_paprika_error}")
         
