@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def extract_price(url_gecko: str, headers_gecko: str, url_paprika: str):
+def extract_price(url_gecko: str, headers_gecko: dict, url_paprika: str):
     response_bes = requests.get(url_gecko, headers=headers_gecko)
     data_bes = response_bes.json()
     
