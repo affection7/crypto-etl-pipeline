@@ -1,23 +1,23 @@
 import pandas as pd
 from datetime import datetime, timezone
 
-def transform_price(data_list: list):
+def transform_price(data_list: dict):
     rows = []
     date = datetime.now(timezone.utc)
-    
-    for item in data_list:
-        if "quotes" in item:
+
+    for source, value in data_list.items():
+        if source == 'paprika':
             rows.append({
                 "date": date, 
-                "price": round(item["quotes"]["USD"]["price"], 2), 
-                "coin": item["symbol"]
+                "price": round(value["quotes"]["USD"]["price"], 2), 
+                "coin": value["symbol"]
             })
-        else:
-            for coin, price in item.items():
+        elif source == 'gecko':
+            for coin_name, price_info  in value.items():
                 rows.append({
                     "date": date, 
-                    "price": price['usd'],
-                    "coin": coin
+                    "price": price_info['usd'],
+                    "coin": coin_name
                 })
     
     print(f'[TRANSFORM] processed {len(rows)} coins')
