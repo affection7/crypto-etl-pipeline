@@ -22,7 +22,7 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
    DB_PASS=your_secure_password
    URL_GECKO=https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=bitcoin,ethereum,solana
    URL_PAPRIKA=https://api.coinpaprika.com/v1/tickers/ton-toncoin
-```
+  ```
 2. Установите зависимости:
    ```bash
    pip install -r requirements.txt
