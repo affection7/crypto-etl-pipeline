@@ -4,11 +4,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def extract_price(url_bes: str, headers_bes: str, url_ton: str):
-    response_bes = requests.get(url_bes, headers=headers_bes)
+def extract_price(url_gecko: str, headers_gecko: str, url_paprika: str):
+    response_bes = requests.get(url_gecko, headers=headers_gecko)
     data_bes = response_bes.json()
     
-    response_ton = requests.get(url_ton)
+    response_ton = requests.get(url_paprika)
     data_ton = response_ton.json()
     
     data = [data_bes, data_ton] 
