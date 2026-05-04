@@ -37,5 +37,5 @@ Python, Pandas, Psycopg2, PostgreSQL (Neon).
 ## Визуализация данных
 Дашборд в Power BI отображает динамику курсов криптовалют.
 
-![Dashboard Preview](img/powerBI_ETL_bitcoin-14.04.2026.png)
+![Dashboard Preview](img/powerBI_ETL_bitcoin-04.05.2026.png)
 
