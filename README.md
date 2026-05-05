@@ -1,41 +1,74 @@
-# Crypto-ETL-pipeline
+# Crypto-ETL-Pipeline
 
-Минималистичный ETL-пайплайн для мониторинга цен токенов.
+![Python](https://img.shields.io/badge/python-3.10+-blue.svg?style=for-the-badge&logo=python)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)
 
-## ETL:
-1. **Extract**: Получает данные из **CoinGecko API и Coinpaprika API** (`requests`).
-2. **Transform**: Формирует структуру данных с меткой времени (`pandas`).
-3. **Load**: Сохраняет результат в облачный **PostgreSQL (Neon)**.
+ETL-пайплайн для мониторинга цен криптовалютных токенов. Проект демонстрирует полный цикл работы с данными: от извлечения из API до облачного хранилища и автоматической визуализации.
 
-## Оркестрация и Автоматизация:
-Пайплайн полностью автоматизирован с помощью **GitHub Actions**.
+---
 
-- **Расписание**: Скрипт запускается автоматически каждые 10 минут (факт. 2 часа)
+## Архитектура решения (ETL)
 
-## Стек:
-Python, Pandas, Psycopg2, PostgreSQL (Neon).
+![Архитектура ETL-пайплайна](img/crypto_etl_architecture.png)
 
-## Быстрый старт:
-1. Настройте ключи в `.env`:
-  ```env
-   API_KEY=YOUR_COINGECKO_API_KEY_HERE
-   DB_PASS=your_secure_password
-   URL_GECKO=https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=bitcoin,ethereum,solana
-   URL_PAPRIKA=https://api.coinpaprika.com/v1/tickers/ton-toncoin
-  ```
-2. Установите зависимости:
-   ```bash
-   pip install -r requirements.txt
-   
-3. Запустите:
-   ```bash
-   py src/main.py
+Процесс обработки данных разделен на три логических этапа для обеспечения масштабируемости:
 
-## Схема таблицы:
-   coins_price (id SERIAL PRIMARY KEY, date TIMESTAMP, price FLOAT, coin VARCHAR(10))
+1.  **Extract (Извлечение)**: Сбор цен (BTC, ETH, SOL, TON) через **CoinGecko** и **Coinpaprika API**.
+2.  **Transform (Трансформация)**: Обработка данных в `pandas`, приведение типов и временных меток.
+3.  **Load (Загрузка)**: Сохранение в облачную СУБД **PostgreSQL (Neon)**.
+4.  **Visualize (Визуализация)**: Подключение **Power BI** к БД Neon для построения графиков и анализа трендов.
 
-## Визуализация данных
-Дашборд в Power BI отображает динамику курсов криптовалют.
+---
+
+## Автоматизация и Оркестрация
+
+Пайплайн полностью автономен благодаря **GitHub Actions**:
+
+1.  **Расписание (Cron)**: Скрипт запускается автоматически каждые 2 часа.
+2.  **Безопасность**: API ключи и доступы к БД хранятся в **GitHub Secrets**.
+3.  **Логирование**: Статус запусков можно отслеживать во вкладке *Actions*.
+
+---
+
+## Дашборд и Визуализация
+
+Ниже представлен актуальный срез данных из Power BI. 
 
 ![Dashboard Preview](img/powerBI_ETL_bitcoin-04.05.2026.png)
 
+---
+
+## Технологический стек
+
+| Категория | Инструменты |
+| :--- | :--- |
+| **Язык** | Python 3.10+ |
+| **Анализ данных** | Pandas |
+| **База данных** | PostgreSQL (Neon.tech) |
+| **Визуализация** | **Power BI Desktop / Service** |
+| **Автоматизация** | GitHub Actions |
+
+---
+## Быстрый старт
+
+### 1. Подготовка окружения
+Создайте файл `.env` в корневой папке:
+  ```env
+    API_KEY=ваш_ключ_coingecko
+    DB_PASS=ваш_пароль_от_neon_db
+    URL_GECKO=https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=bitcoin,ethereum,solana
+    URL_PAPRIKA=https://api.coinpaprika.com/v1/tickers/ton-toncoin
+  ```
+### 2. Установите зависимости:
+
+   ```bash
+     pip install -r requirements.txt
+   ```
+### 3. Запустите:
+
+   ```bash
+     python src/main.py
+   ```
