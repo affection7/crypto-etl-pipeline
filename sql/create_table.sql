@@ -3,4 +3,5 @@ CREATE TABLE coins_price (
     date TIMESTAMP,
     price DOUBLE PRECISION,
     coin VARCHAR,
+    source VARCHAR(25)
 )
