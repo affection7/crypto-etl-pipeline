@@ -10,7 +10,7 @@ def transform_price(data_list: dict):
             rows.append({
                 "date": date, 
                 "price": round(value["quotes"]["USD"]["price"], 2), 
-                "coin": value["symbol"],
+                "coin": value["name"].lower(),
                 "source": "paprika"
             })
         elif source == 'gecko':
