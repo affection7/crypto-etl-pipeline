@@ -17,7 +17,7 @@ def load_to(df: pd.DataFrame):
         print("[LOAD] No rows to load!!!")
         return
 
-    rows = df[["date", "price", "coin"]].values.tolist()
+    rows = df[["date", "price", "coin", "source"]].values.tolist()
 
     with psycopg2.connect(DB_URL) as conn:
         with conn.cursor() as cur:
