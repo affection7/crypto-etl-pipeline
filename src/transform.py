@@ -10,14 +10,16 @@ def transform_price(data_list: dict):
             rows.append({
                 "date": date, 
                 "price": round(value["quotes"]["USD"]["price"], 2), 
-                "coin": value["symbol"]
+                "coin": value["symbol"],
+                "source": "paprika"
             })
         elif source == 'gecko':
             for coin_name, price_info  in value.items():
                 rows.append({
                     "date": date, 
                     "price": price_info['usd'],
-                    "coin": coin_name
+                    "coin": coin_name,
+                    "source": "gecko"
                 })
     
     print(f'[TRANSFORM] processed {len(rows)} coins')
