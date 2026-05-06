@@ -1,4 +1,5 @@
 import os
+import logging
 from extract import extract_price
 from transform import transform_price
 from load import load_to
@@ -11,12 +12,14 @@ URL_GECKO  = os.getenv("URL_GECKO")
 URL_PAPRIKA = os.getenv("URL_PAPRIKA")
 HEADERS = {"x-cg-api-key": API_KEY}
 
+logging.basicConfig(level=logging.INFO)
+
 if __name__ == "__main__":
-    print("[EXTRACT] start")
+    logging.debug("[EXTRACT] start")
     data = extract_price(URL_GECKO, HEADERS, URL_PAPRIKA)
-    print("[TRANSFORM] start")
+    logging.debug("[TRANSFORM] start")
     data_df = transform_price(data)
-    print("[LOAD] start")
+    logging.debug("[LOAD] start")
     load_to(data_df)
-    print("[PIPELINE] done")
+    logging.debug("[PIPELINE] done")
  
