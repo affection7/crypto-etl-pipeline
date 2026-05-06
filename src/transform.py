@@ -1,4 +1,5 @@
 import pandas as pd
+import logging
 from datetime import datetime, timezone
 
 def transform_price(data_list: dict):
@@ -22,5 +23,5 @@ def transform_price(data_list: dict):
                     "source": "gecko"
                 })
     
-    print(f'[TRANSFORM] processed {len(rows)} coins')
+    logging.info(f'[TRANSFORM] processed {len(rows)} coins')
     return pd.DataFrame(rows)
