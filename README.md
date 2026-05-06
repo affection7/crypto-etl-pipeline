@@ -37,7 +37,7 @@ ETL-пайплайн для мониторинга цен криптовалют
 
 Ниже представлен актуальный срез данных из Power BI. 
 
-![Dashboard Preview](img/powerBI_ETL_bitcoin-04.05.2026.png)
+![Dashboard Preview](img/dashboard.png)
 
 ---
 
