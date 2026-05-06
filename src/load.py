@@ -1,6 +1,7 @@
 import pandas as pd
 import psycopg2
 import os
+import logging
 from dotenv import load_dotenv
 from psycopg2.extras import execute_values
 
@@ -14,7 +15,7 @@ def load_to(df: pd.DataFrame):
         sql = f_sql.read()
 
     if df.empty:
-        print("[LOAD] No rows to load!!!")
+        logging.info("[LOAD] No rows to load!!!")
         return
 
     rows = df[["date", "price", "coin", "source"]].values.tolist()
@@ -22,4 +23,4 @@ def load_to(df: pd.DataFrame):
     with psycopg2.connect(DB_URL) as conn:
         with conn.cursor() as cur:
             execute_values(cur, sql, rows)
-            print(f'[LOAD] rows prepared: {len(rows)}')
+            logging.info(f'[LOAD] rows prepared: {len(rows)}')
