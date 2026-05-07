@@ -1,11 +1,10 @@
-import os
 import logging
-from config import API_KEY, URL_GECKO, URL_PAPRIKA
+from config import URL_GECKO, URL_PAPRIKA, HEADERS
 from extract import extract_price
 from transform import transform_price
 from load import load_to
 
-HEADERS = {"x-cg-api-key": API_KEY}
+
 
 logging.basicConfig(level=logging.INFO)
 
