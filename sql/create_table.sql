@@ -1,7 +1,8 @@
 CREATE TABLE coins_price (
     id SERIAL PRIMARY KEY,
-    date TIMESTAMP,
+    date TIMESTAMPTZ,
     price DOUBLE PRECISION,
     coin VARCHAR,
-    source VARCHAR(25)
-)
+    source VARCHAR(25),
+    UNIQUE (source, coin, date)
+);
