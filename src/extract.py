@@ -1,10 +1,7 @@
 import requests
 import logging
 
-from dotenv import load_dotenv
 from requests.exceptions import HTTPError
-
-load_dotenv()
 
 def extract_price(url_gecko: str, headers_gecko: dict, url_paprika: str):
     data = {}
