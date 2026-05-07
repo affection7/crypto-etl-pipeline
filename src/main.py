@@ -1,15 +1,10 @@
 import os
 import logging
+from config import API_KEY, URL_GECKO, URL_PAPRIKA
 from extract import extract_price
 from transform import transform_price
 from load import load_to
-from dotenv import load_dotenv
 
-load_dotenv()
-
-API_KEY = os.getenv("API_KEY")
-URL_GECKO  = os.getenv("URL_GECKO")
-URL_PAPRIKA = os.getenv("URL_PAPRIKA")
 HEADERS = {"x-cg-api-key": API_KEY}
 
 logging.basicConfig(level=logging.INFO)
