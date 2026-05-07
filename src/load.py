@@ -2,12 +2,10 @@ import pandas as pd
 import psycopg2
 import os
 import logging
-from dotenv import load_dotenv
+from config import DB_PASS
 from psycopg2.extras import execute_values
 
-load_dotenv()
 
-DB_PASS = os.getenv("DB_PASS")
 DB_URL = f"postgresql://neondb_owner:{DB_PASS}@ep-shiny-firefly-ah7am9sh-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&connect_timeout=10"
 
 def load_to(df: pd.DataFrame):
