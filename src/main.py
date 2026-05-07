@@ -4,8 +4,6 @@ from extract import extract_price
 from transform import transform_price
 from load import load_to
 
-
-
 logging.basicConfig(level=logging.INFO)
 
 if __name__ == "__main__":
