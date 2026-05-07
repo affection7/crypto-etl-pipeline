@@ -4,7 +4,7 @@ from extract import extract_price
 from transform import transform_price
 from load import load_to
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s | %(levelname)s | %(filename)s | %(message)s')
 
 if __name__ == "__main__":
     logging.debug("[EXTRACT] start")
