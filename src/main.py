@@ -2,7 +2,7 @@ import logging
 from config import URL_GECKO, URL_PAPRIKA, HEADERS
 from sources.extract import extract_price
 from transforms.transform import transform_price
-from load import load_to
+from loaders.load import load_to
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s | %(levelname)s | %(filename)s | %(message)s')
 
