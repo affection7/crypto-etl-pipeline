@@ -1,6 +1,6 @@
 import logging
 from config import URL_GECKO, URL_PAPRIKA, HEADERS
-from extract import extract_price
+from sources.extract import extract_price
 from transform import transform_price
 from load import load_to
 
