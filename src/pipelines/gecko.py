@@ -6,4 +6,4 @@ from config import URL_GECKO, HEADERS
 def run_gecko_pipelines():
     data = extract_gecko(URL_GECKO, HEADERS)
     data_clean = transform_price(data)
-    load_to(data_clean)
+    load_to(data_clean, "sql/insert_coins.sql", ["date", "price", "coin", "source"])
