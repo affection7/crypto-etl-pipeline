@@ -1,7 +1,5 @@
 import requests
 import logging
-import pandas as pd
-from datetime import datetime, timezone
 from requests.exceptions import HTTPError
 
 def extract_gecko(url: str, headers: dict):
