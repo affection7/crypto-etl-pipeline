@@ -7,5 +7,6 @@ API_KEY = os.getenv("API_KEY")
 HEADERS = {"x-cg-api-key": API_KEY}
 URL_GECKO  = os.getenv("URL_GECKO")
 URL_PAPRIKA = os.getenv("URL_PAPRIKA")
+URL_COINLORE = os.getenv("URL_COINLORE")
 DB_PASS = os.getenv("DB_PASS")
 DATABASE_URL = os.getenv("DATABASE_URL")
