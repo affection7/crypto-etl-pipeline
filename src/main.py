@@ -1,5 +1,4 @@
 import logging
-from config import URL_GECKO, URL_PAPRIKA, HEADERS
 from pipelines.paprika import run_paprika_pipelines
 from pipelines.gecko import run_gecko_pipelines
 from pipelines.coinlore import run_coinlore_pipelines
