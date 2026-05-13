@@ -13,5 +13,5 @@ def transform_price(data_list: dict):
         "source": "paprika",
     })
 
-    print(f'[TRANSFORM] processed {len(rows)} coins {rows}')
+    logging.info(f'[TRANSFORM] processed {len(rows)} coins')
     return pd.DataFrame(rows)
