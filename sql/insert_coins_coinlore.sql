@@ -1,0 +1,1 @@
+INSERT INTO row.coin_lore (date, nameid, price, percent_change_24h, percent_change_7d, market_cap_usd, source) VALUES %s 
