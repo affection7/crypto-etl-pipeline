@@ -27,4 +27,5 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           URL_GECKO: ${{ secrets.URL_GECKO }}
           URL_PAPRIKA: ${{ secrets.URL_PAPRIKA }}
+          URL_COINLORE: ${{ secrets.URL_COINLORE }}
         run: python src/main.py
