@@ -10,6 +10,7 @@ def extract_paprika(url: str) -> dict:
         logging.info("[EXTRACT] paprika success")
         return data
     except HTTPError as http_paprika_error:
-        logging.error(f"HTTP ощибка: {http_paprika_error}")
+        logging.error(f"HTTP ошибка: {http_paprika_error}")
+        raise
 
 
