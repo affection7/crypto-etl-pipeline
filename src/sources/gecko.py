@@ -10,4 +10,5 @@ def extract_gecko(url: str, headers: dict):
         logging.info("[EXTRACT] gecko success")
         return data
     except HTTPError as http_gecko_error:
-        logging.error(f"HTTP ощибка: {http_gecko_error}")
+        logging.error(f"HTTP ошибка: {http_gecko_error}")
+        raise
