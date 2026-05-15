@@ -11,6 +11,7 @@ def extract_coinlore(URL: str):
         return data_lore
     except HTTPError as http_gecko_error:
         logging.error(f"HTTP ошибка: {http_gecko_error}")
+        raise
 
 
 # def transfor_lore(data: dict):
