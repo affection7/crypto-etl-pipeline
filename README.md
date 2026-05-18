@@ -1,6 +1,7 @@
 # Crypto-ETL-Pipeline
 
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg?style=for-the-badge&logo=python)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
@@ -86,9 +87,9 @@ Pipeline полностью автоматизирован через GitHub Act
 
 Возможности:
 
--   cron (каждые 10 минут)
--   автоматический запуск ETL
--   централизованные логи pipeline
+- cron (каждые 2 часа)
+- автоматический запуск ETL
+- централизованные логи pipeline
 
 GitHub Actions используется как оркестратор вместо Airflow.
 
@@ -119,6 +120,7 @@ Dashboard отображает:
 | API | REST API / JSON |
 | База данных | PostgreSQL (Neon) |
 | Visualization | Power BI |
+| Containerization | Docker |
 | Automation | GitHub Actions |
 
 
@@ -221,8 +223,20 @@ pip install -r requirements.txt
 
 ## 4. Запустите ETL pipeline
 
+### Локально
+
 ```bash
 python src/main.py
+```
+
+### Через Docker
+
+```bash
+# Сборка образа
+docker build -t etl-coin .
+
+# Запуск контейнера
+docker run --env-file .env etl-coin
 ```
 
 ---
