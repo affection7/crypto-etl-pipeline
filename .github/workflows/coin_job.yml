@@ -51,11 +51,4 @@ jobs:
         run: docker pull ghcr.io/${{ github.repository }}:latest
 
       - name: Run Docker container
-        run: >
-          docker run --rm
-          -e API_KEY=${{ secrets.API_KEY }}
-          -e DATABASE_URL=${{ secrets.DATABASE_URL }}
-          -e URL_GECKO=${{ secrets.URL_GECKO }}
-          -e URL_PAPRIKA=${{ secrets.URL_PAPRIKA }}
-          -e URL_COINLORE=${{ secrets.URL_COINLORE }}
-          ghcr.io/${{ github.repository }}:latest
+        run: docker run --rm -e API_KEY="${{ secrets.API_KEY }}" -e DATABASE_URL="${{ secrets.DATABASE_URL }}" -e URL_GECKO="${{ secrets.URL_GECKO }}" -e URL_PAPRIKA="${{ secrets.URL_PAPRIKA }}" -e URL_COINLORE="${{ secrets.URL_COINLORE }}" ghcr.io/${{ github.repository }}:latest
